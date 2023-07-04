@@ -1,0 +1,30 @@
+{
+  "name": "namastereact_series",
+  "version": "1.0.0",
+  "description": "Namaste React Series",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prachi-0698/NamasteReact_Series.git"
+  },
+  "author": "Prachi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Prachi-0698/NamasteReact_Series/issues"
+  },
+  "homepage": "https://github.com/Prachi-0698/NamasteReact_Series#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist":[
+    "last 2 versions"
+  ]
+}
