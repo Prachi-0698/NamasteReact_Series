@@ -22,7 +22,18 @@ const resList = [
         costForTwo: "₹400 for two",
         cuisines: ["Pizzas","Italian","Pastas","Desserts"],
         avgRating: 4.1
-    },
+    }
+  },
+  {
+    type: "restaurant",
+    data: {
+        id: "32127",
+        name: "Burger King",
+        cloudinaryImageId: "e33e1d3ba7d6b2bb0d45e1001b731fcf",
+        costForTwo: "₹400 for two",
+        cuisines: ["Burgers", "American"],
+        avgRating: 4.1
+    }
   },
   {
     type: "restaurant",
@@ -71,17 +82,21 @@ const Header = () =>{
     )
 }
 
-const Restaurant = ({resData}) =>{
+const Restaurant = (props) =>{
+    const {resData} = props;
+    const {cloudinaryImageId, name, 
+            cuisines,costForTwo, avgRating}  = resData?.data
+
     return(
         <div className="res-card">
             <div className="res-card-img">
-            <img className="res-img" src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + resData.data.cloudinaryImageId }/>
+            <img className="res-img" src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId }/>
             </div>
             <div className="res-details">
-                <h2>{resData.data.name}</h2>
-                <p>{resData.data.cuisines.join(', ')}</p>
-                <p>{resData.data.avgRating}</p>
-                <p>{resData.data.costForTwo}</p>
+                <h2>{name}</h2>
+                <p>{cuisines.join(', ')}</p>
+                <p>{avgRating}</p>
+                <p>{costForTwo}</p>
             </div>
         </div>
     )
@@ -90,9 +105,10 @@ const Restaurant = ({resData}) =>{
 const Body = () =>{
     return(
         <div className="res-container">
-            <Restaurant resData={resList[0]} />
-            <Restaurant resData={resList[1]} />
-            <Restaurant resData={resList[2]} />
+            {resList.map((restaurant) =>(
+                <Restaurant resData={restaurant} key={restaurant.data.id}/>
+            ))
+            }
             
         </div>
         
