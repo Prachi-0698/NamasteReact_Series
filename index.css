@@ -56,4 +56,33 @@
     margin: 2px 0;
 }
 
+.filter{
+    margin: 15px;
+}
+.filter .filter-btn{
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background: rgb(182, 204, 255);
+    color: #fff;
+    cursor: pointer;
+    transition: .3s;
+}
+.filter-btn:hover{
+    animation: pulse 1s ease-in;
+    transition: .3s;
+}
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    70% {
+      transform: scale(.9);
+    }
+      100% {
+      transform: scale(1);
+    }
+  }
 

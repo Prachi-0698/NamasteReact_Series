@@ -29,7 +29,7 @@ const resList = [
             cloudinaryImageId: "e33e1d3ba7d6b2bb0d45e1001b731fcf",
             costForTwo: "₹400 for two",
             cuisines: ["Burgers", "American"],
-            avgRating: 4.1
+            avgRating: 4.2
         }
       },
       {
@@ -40,7 +40,7 @@ const resList = [
             cloudinaryImageId: "lgfkquq3npd3r9oiy62b",
             costForTwo: "₹400 for two",
             cuisines: ["North Indian","Chinese","Punjabi","Snacks"],
-            avgRating: 4.1
+            avgRating: 4.2
         }
       },
       {
@@ -55,8 +55,47 @@ const resList = [
             "American",
             "Snacks",
             "Fast Food"],
-            avgRating: 4
+            avgRating: 3.7
         } 
+      },
+      {
+        type: "restaurant",
+        data: {
+            id: "11104",
+            name: "Pizza Hut",
+            cloudinaryImageId: "2b4f62d606d1b2bfba9ba9e5386fabb7",
+            costForTwo: "₹350 for two",
+            cuisines: ["Pizzas"],
+            avgRating: 3.8
+        } 
+      },
+      {
+        type: "restaurant",
+        data: {
+            id: "11436",
+            name: "Subway",
+            cloudinaryImageId: "1ace5fa65eff3e1223feb696c956b38b",
+            costForTwo: "₹350 for two",
+            cuisines: ["Salads",
+            "Snacks",
+            "Desserts",
+            "Baverages"],
+            avgRating: 3.7
+        } 
+      },
+      {
+        type: "restaurant",
+        data: {
+            id: "15502",
+            name: "Wow! Momo",
+            cloudinaryImageId: "0984acc0ed7b914206dbbcb90297becc",
+            costForTwo: "₹300 for two",
+            cuisines: ["Tibetan",
+            "Asian",
+            "Chinese",
+            "Continental"],
+            avgRating: 3.9
+        }
       }
     ] 
 
