@@ -11,16 +11,24 @@ const Body = () =>{
     }, [])
 
     const fetchData = async () =>{
+        console.log("Use effect called")
       const data = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6422668&lng=77.0845962&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6422668&lng=77.0845962&collection=83645&isNewCollectionFlow=true&tags=layout_CCS_NorthIndian&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
       );
 
       const json = await data.json();
-
-      console.log(json)
-
-      setListOfRes(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        json.data.cards.splice(0,3)
+        console.log(json)
+        console.log(json.data.cards)
+        setListOfRes(json?.data.cards)
+     
+      
+    //   /
     }
+    // const setNewRes = (json) =>{
+    //     console.log("New Res called")
+    //     setListOfRes(json)
+    //  }
 
     return(
         <div className="body">
@@ -40,8 +48,8 @@ const Body = () =>{
                 </button>
             </div>
             <div className="res-container">
-                {listOfRes.map((restaurant) =>(
-                    <Restaurant resData={restaurant} key={restaurant?.card.card.id}/>
+                {listOfRes?.map((restaurant) =>(
+                    <Restaurant resData={restaurant} key={restaurant?.card.card.info.id}/>
                 ))
                 }
                 
