@@ -1,7 +1,6 @@
 import Restaurant from "./Restaurant";
 // import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
-import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 
 const Body = () =>{
@@ -12,7 +11,7 @@ const Body = () =>{
     const[searchText, setSearchText] = useState('')
 
     useEffect(()=>{
-        console.log('use effect called');
+        // console.log('use effect called');
         fetchData();
     }, [])
 
@@ -24,7 +23,7 @@ const Body = () =>{
     
         
           const json = await data?.json();
-          console.log(json);
+        //   console.log(json);
           const test = json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
           setListOfRes(test)
           setFilteredRestaurant(test)
@@ -72,9 +71,10 @@ const Body = () =>{
                             // search text
                             console.log(searchText);
 
-                            const filteredRestaurant = listOfRes.filter((restaurant) => restaurant.info?.name.toLowerCase.includes(searchText));
+                            const filteredRestaurant = listOfRes.filter((restaurant) => restaurant.info?.name.toLowerCase().includes(searchText.toLowerCase()));
 
                             setFilteredRestaurant(filteredRestaurant)
+                            
                         }}>Search</button>
                 </div>
             </div>

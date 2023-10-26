@@ -1,9 +1,16 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () =>{
 
+    console.log('Hearder Rendered');
+
     const[loginBtn, setLoginBtn] = useState("LogIn")
+
+    // useEffect(()=>{
+    //     console.log('UseEffect Called');
+    // }, [loginBtn])
 
     return(
         <div className="nav-container">
@@ -12,13 +19,13 @@ const Header = () =>{
             </div>
             <div className="nav-links">
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/cart">Cart</Link></li>
                     <li className="login" onClick={() =>{
                         loginBtn === 'LogIn' ? setLoginBtn("LogOut") : setLoginBtn("LogIn")
-                    }}>{loginBtn}</li>
+                    }}> {loginBtn}</li>
                 </ul>
             </div>
         </div>
