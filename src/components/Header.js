@@ -19,10 +19,10 @@ const Header = () =>{
             </div>
             <div className="nav-links">
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
-                    <li><Link to="/cart">Cart</Link></li>
+                    <li><Link className="nav-link" to="/">Home</Link></li>
+                    <li><Link className="nav-link" to="/about">About</Link></li>
+                    <li><Link className="nav-link" to="/contact">Contact</Link></li>
+                    <li><Link className="nav-link" to="/cart">Cart</Link></li>
                     <li className="login" onClick={() =>{
                         loginBtn === 'LogIn' ? setLoginBtn("LogOut") : setLoginBtn("LogIn")
                     }}> {loginBtn}</li>
