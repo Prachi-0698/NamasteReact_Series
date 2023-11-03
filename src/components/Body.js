@@ -3,6 +3,7 @@ import Restaurant from "./Restaurant";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () =>{
 
@@ -40,6 +41,16 @@ const Body = () =>{
     //     console.log("New Res called")
     //     setListOfRes(json)
     //  }
+
+    const onlineStatus = useOnlineStatus();
+
+    if(onlineStatus === false) 
+    return(
+        <div>
+            <h1>Ooops! ....Looks like you're offline</h1>
+            <h2>Please check your Internet connection</h2>
+        </div>        
+        )
 
     console.log('Body Rendered');
       // Conditional rendering
