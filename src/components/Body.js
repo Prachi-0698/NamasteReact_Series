@@ -25,10 +25,24 @@ const Body = () =>{
     
         
           const json = await data?.json();
+          for (let index = 0; index < json.data.cards.length; index++) {
+            const test =
+              json?.data?.cards[index]?.card?.card?.gridElements?.infoWithStyle
+                ?.restaurants;
+    
+            if (test === undefined) {
+              continue;
+            }
+            setListOfRes(test);
+            setFilteredRestaurant(test);
+            break;
+          }
         //   console.log(json);
-          const test = json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-          setListOfRes(test)
-          setFilteredRestaurant(test)
+        //   const test = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+        //   console.log(test);
+        //   console.log(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        //   setListOfRes(test)
+        //   setFilteredRestaurant(test)
         //   console.log(listOfRes)
           
        }
@@ -58,21 +72,16 @@ const Body = () =>{
         <div className="body">
             <div className="flex justify-between mt-4 mx-6 ">
                 <div className="mt-2">
-                    <button 
-                        className="border m-3 p-2 bg-orange-300 text-white text-bold rounded-xl" onClick={() => {
-                            // console.log('button clicked')
-                            // console.log("Filter", listOfRes);
-                            const filteredList = listOfRes.filter(
-                                (res) => res?.info?.avgRating > 4      
-                            );
-                           
-                            
-                            console.log(filteredList)
-                            
-                           return setListOfRes(filteredList);
-                            
-                        }}
-                    >
+                <button
+                    className="border m-3 p-2 bg-orange-300 text-white text-bold rounded-xl"
+                    onClick={() => {
+                    const filteredList = listOfRes.filter(
+                    (res) => res?.info?.avgRating > 4.2
+                    );
+                        console.log(filteredList);
+                    setFilteredRestaurant(filteredList);
+                    }}
+                >
                         Top Rated Restaurant
                     </button>
                 </div>
