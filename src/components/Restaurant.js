@@ -14,15 +14,14 @@ const Restaurant = (props) =>{
 
             
     return(
-        <div className="res-card">
+        <div className="m-4 p-4 w-[250px]
+        transition-transform transform hover:scale-95">
+            <img className="rounded-lg w-[650px] h-52" src={CDN_URL + resData?.info?.cloudinaryImageId  }/>
             
-            <div className="res-card-img">
-            <img className="res-img" src={CDN_URL + resData?.info?.cloudinaryImageId  }/>
-            </div>
-            <div className="res-details">
-                <h2>{name}</h2>
-                <p>{cuisines?.join(', ')}</p>
-                <p>{avgRating}</p>
+            <div className="ml-1 mt-3"> 
+                <h2 className="font-semibold text-xl line-clamp-1">{name}</h2>
+                <h2 className='font-semibold text-l'>⭐ {avgRating}</h2>
+                <p className='line-clamp-1'>{cuisines?.join(', ')}</p>
                 <p>{costForTwo}</p>
             </div>
         </div>

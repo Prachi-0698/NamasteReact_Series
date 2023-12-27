@@ -42,30 +42,34 @@ const Body = () =>{
     //     setListOfRes(json)
     //  }
 
-    const onlineStatus = useOnlineStatus();
+    // const onlineStatus = useOnlineStatus();
 
-    if(onlineStatus === false) 
-    return(
-        <div>
-            <h1>Ooops! ....Looks like you're offline</h1>
-            <h2>Please check your Internet connection</h2>
-        </div>        
-        )
+    // if(onlineStatus === false) 
+    // return(
+    //     <div>
+    //         <h1>Ooops! ....Looks like you're offline</h1>
+    //         <h2>Please check your Internet connection</h2>
+    //     </div>        
+    //     )
 
     console.log('Body Rendered');
       // Conditional rendering
     return listOfRes.length === 0 ? <Shimmer /> : (
         <div className="body">
-            <div className="filter">
-                <div className="filterBtn">
+            <div className="flex justify-between mt-4 mx-6 ">
+                <div className="mt-2">
                     <button 
-                        className="filter-btn" onClick={() => {
-                            console.log('button clicked')
+                        className="border m-3 p-2 bg-orange-300 text-white text-bold rounded-xl" onClick={() => {
+                            // console.log('button clicked')
+                            // console.log("Filter", listOfRes);
                             const filteredList = listOfRes.filter(
-                                (res) => res.data.avgRating > 4
+                                (res) => res?.info?.avgRating > 4      
                             );
+                           
                             
-                            return setListOfRes(filteredList);
+                            console.log(filteredList)
+                            
+                           return setListOfRes(filteredList);
                             
                         }}
                     >
@@ -75,10 +79,10 @@ const Body = () =>{
 
                 <div className="search-filter">
                         {/* Bind the Search text to input */}
-                        <input type="text" value={searchText} onChange={(e) => {
+                        <input className="m-3 p-2 rounded-md border-0 bg-transparent outline-0 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-orange-300 placeholder:p-2 " type="text" value={searchText} onChange={(e) => {
                             setSearchText(e.target.value)
                         }} placeholder="Search Restaurants"></input>
-                        <button className="searchBtn" onClick={()=>{
+                        <button className="p-2 px-4 bg-orange-300 text-white text-bold rounded-xl" onClick={()=>{
                             // Filter the restaurant cards and update UI
                             // search text
                             console.log(searchText);
@@ -90,9 +94,9 @@ const Body = () =>{
                         }}>Search</button>
                 </div>
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap justify-center">
             {filteredRestaurant?.map((restaurant) =>(
-                    <Link key={restaurant.info?.id} to={"/restaurants/" + restaurant.info?.id}><Restaurant resData={restaurant} /></ Link>
+                    <Link key={restaurant.info?.id} to={"/restaurants/" + restaurant.info?.id} className='pr-4'><Restaurant resData={restaurant} /></ Link>
                 ))
                 }
                 
